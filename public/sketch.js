@@ -7,16 +7,20 @@ var fallingBranches = []; // Array to store falling branches
 var count = 0; // Counter for tracking number of times mouse is pressed
 
 function setup() {
-  let w = windowWidth;
-  let h = windowHeight;
+  let w = window.innerWidth;
+  let h = window.innerHeight;
   createCanvas(w, h);
   
   // Create root branch at the center bottom of the canvas
-  var a = createVector(width/2, height);
-  var b = createVector(width/2, height-200);
+  var a = createVector(w/2, h);
+  var b = createVector(w/2, h-200);
   root = new Branch(a, b);
   // Add the root to the tree array
   tree[0] = root;
+}
+
+function windowResized () {
+  resizeCanvas (window.innerWidth, window.innerHeight)
 }
 
 function mousePressed() {
